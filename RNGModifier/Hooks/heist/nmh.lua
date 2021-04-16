@@ -26,3 +26,35 @@ MenuHelper:AddMultipleChoice({
 	value = RNGModifier:SafeGetData("nmh", "_chooseRandomRoom"),
 	menu_id = "RNGModifier_nmh_Options_Menu"
 })
+
+MenuCallbackHandler.RNGModifier_nmh_correct_paper = function(self, item)
+    RNGModifier:SafeSetData(item:value() == "on" and 2 or 1, _Curret_Heist, "_correct_paper")
+    RNGModifier:Save()
+end
+
+MenuHelper:AddToggle({
+    id = "RNGModifier_nmh_correct_paper",
+    title = "RNGModifier_nmh_correct_paper_title",
+    desc = "RNGModifier_empty_desc",
+    callback = "RNGModifier_nmh_correct_paper",
+    value = RNGModifier:SafeGetData("nmh", "_correct_paper") == 2,
+    menu_id = "RNGModifier_nmh_Options_Menu"
+})
+
+
+MenuCallbackHandler.RNGModifier_nmh_vile_chance = function(self, item)
+    RNGModifier:SafeSetData(item:value(), _Curret_Heist, "_vile_chance")
+    RNGModifier:Save()
+end
+
+MenuHelper:AddSlider({
+    id = "RNGModifier_nmh_vile_chance",
+    title = "RNGModifier_nmh_vile_chance_title",
+    desc = "RNGModifier_nmh_vile_chance_desc",
+    callback = "RNGModifier_nmh_vile_chance",
+    value = RNGModifier:SafeGetData("nmh", "_vile_chance") or 28,
+    min = 0,
+    max = 100,
+    step = 1,
+    menu_id = "RNGModifier_nmh_Options_Menu"
+})

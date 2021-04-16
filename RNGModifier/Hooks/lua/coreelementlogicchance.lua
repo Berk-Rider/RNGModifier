@@ -59,6 +59,16 @@ function ElementLogicChance:on_executed(...)
 					self._chance = -999
 				end
 			end
+		elseif _level_id == "spa" then
+			if self._id == 101307 then
+				local _van_rush_in = RNGModifier:SafeGetData(_level_id, "_van_rush_in") or 0
+				_van_rush_in = _van_rush_in - 1
+				if _van_rush_in == 1 then
+					self._chance = 999
+				elseif _van_rush_in == 2 then
+					self._chance = -999
+				end
+			end
 		elseif _level_id == "framing_frame_2" then
 			if self._id == 101781 then
 				local _chanceForAAmbush = RNGModifier:SafeGetData(_level_id, "_chanceForAAmbush") or 0
@@ -183,8 +193,15 @@ function ElementLogicChance:on_executed(...)
 				local _roof_or_fall = RNGModifier:SafeGetData(_level_id,"_roof_or_fall") or 0
 				if _roof_or_fall == 2 then
 					self._chance = 999
-				elseif _roof_or_fall == 4 then
-					self._chance = 999
+				elseif _roof_or_fall == 3 then
+					self._chance = -999
+				end
+			elseif self._id == 101645 then
+				local _balcony  = RNGModifier:SafeGetData(_level_id,"_balcony") or 0
+				if _balcony == 2 then
+					self._chance = 999 
+				elseif _balcony == 3 then
+					self._chance = -999
 				end
 			end
 		elseif _level_id == "mex" then
@@ -221,6 +238,15 @@ function ElementLogicChance:on_executed(...)
 					self._chance = -999
 				end
 			end
+		elseif _level_id == "arm_for" then
+			if self._id == 104977 then
+				local _chance_boat_or_truck = RNGModifier:SafeGetData(_level_id, "_chance_boat_or_truck") or 0
+				if _chance_boat_or_truck == 2 then
+					self._chance = 999
+				elseif _chance_boat_or_truck == 3 then
+					self._chance = -999				
+				end
+			end
 		elseif _level_id == "election_day_1" then
 			if self._id == 104564 then
 				local _chance_of_container = RNGModifier:SafeGetData(_level_id, "_chance_of_container") or 0
@@ -254,6 +280,25 @@ function ElementLogicChance:on_executed(...)
 				local _code = RNGModifier:SafeGetData(_level_id,"_code") or 0 
 				if _code == 2 then
 					self._chance = -999
+				end
+			end
+		elseif _level_id == "nmh" then
+			if self._id == 103011 then
+				local _correct_paper = RNGModifier:SafeGetData(_level_id, "_correct_paper") or 0
+				if _correct_paper == 2 then
+					self._chance = 999
+				end
+			elseif self._editor_name == "chance_28" then -- centrifuge success
+				local new_chance = RNGModifier:SafeGetData(_level_id, "_vile_chance") or -1
+				if new_chance > 0 then
+					self._chance = new_chance
+				end
+			end
+		elseif _level_id == "peta2" then
+			if self._editor_name == "x_chance" then -- cage pickup success
+				local _cage_success = RNGModifier:SafeGetData(_level_id, "_cage_success") or 0
+				if _cage_success == 2 then
+					self._chance = 999
 				end
 			end
 		end

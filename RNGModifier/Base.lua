@@ -18,65 +18,83 @@ RNGModifier._menu_id = "RNGModifier_menu_id"
 RNGModifier._menu_Heist_id = "RNGModifier_menu_Heist_id"
 RNGModifier._menu_All_id = "RNGModifier_menu_All_id"
 RNGModifier._heistlist = {
-	"branchbank",
-	"roberts",
-	--"fish",
-	"arm_fac",
-	"arm_par",
-	"arm_und",
-	"arm_cro",
-	"arm_hcm",
-	"four_stores",
-	"cage",
-	"welcome_to_the_jungle_1",
-	"welcome_to_the_jungle_2",
-	"big",
-	"framing_frame_3",
-	"friend",
-	--"crojob3",
-	"crojob2",
-	"watchdogs_1",
-	"shoutout_raid",
-	"mex",
-	"hox_2",
-	"hox_1",
-	"hox_3",
-	--"mia_1",
-	--"mia_2",
-	"cane",
-	"mus",
-	"rat",
-	"arena",
-	"jolly",
-	"election_day_1",
-	"election_day_2",
-	"firestarter_1",
-	"firestarter_2",
-	"firestarter_3",
-	"arm_for",
-	"framing_frame_2",
-	"alex_2",
-	"pbr",
-	"wwh",
-	"dah",
-	"glace",
-	"chill_combat",
-	"hvh",
-	"rvd1",
-	"rvd2",
-	"brb",
-	"family",
-	"dark",
-	"alex_3",
-	"pal",
-	"kosugi",
-	"nightclub",
-	"tag",
-	"vit",
-	"sah",
-	"nmh",
-	"peta",
-	"peta2"
+	"gallery",--Bain - Art Gallery
+	"branchbank",--Bain - Bank Heist
+	"cage",--Bain - Car Shop
+	"rat",--Bain - Cook Off
+	"family",--Bain - Diamond Store
+	"roberts",--Bain - GO Bank
+	"rvd1",--Bain - Reservoir Dogs 1
+	"rvd2",--Bain - Reservoir Dogs 2
+	"kosugi",--Bain - Shadow Raid
+	"arena",--Bain - Alesso Heist
+	"arm_cro",--Bain - Transport: Crossroads
+	"arm_hcm",--Bain - Transport: Downtown
+	"arm_fac",--Bain - Transport: Harbor
+	"arm_par",--Bain - Transport: Park
+	"arm_for",--Bain - Transport: Train Heist
+	"arm_und",--Bain - Transport: Underpass
+	"pal",--Classics -  Counterfeit
+	"dah",--Classics -  Diamond Heist
+	"red2",--Classics -  First World Bank
+	"glace",--Classics -  Green Bridge
+	"nmh",--Classics -  No Mercy
+	"man",--Classics -  Undercover
+	"hvh",--Events -  Cursed Kill Room
+	"help",--Events -  Prison Nightmare
+	"chill_combat",--Events -  Safehouse Raid
+	"firestarter_1",--Hector - Firestarter 1
+	"firestarter_2",--Hector - Firestarter 2
+	"firestarter_3",--Hector - Firestarter 3
+	"alex_2",--Hector - Rats 2
+	"alex_3",--Hector - Rats 3
+	"watchdogs_1",--Hector - Watchdogs 1
+	"mad",--Jimmy -  Boiling Point
+	"dark",--Jimmy -  Murky Station
+	"chas",--Jiu Feng - Dragon Heist
+	"wwh",--Locke - Alaskan Deal
+	"pbr",--Locke - Beneath The Mountain
+	"mex",--Locke - Border Crossing
+	"mex_cooking",--Locke - Border Crystals
+	"pex",--Locke - Breakfast In Tijuana
+	"tag",--Locke - Breakin' Feds
+	"brb",--Locke - Brooklyn Bank
+	"bph",--Locke - Hell's Island
+	"des",--Locke - Henry's Rock
+	"sah",--Locke - Shaklethorne Auction
+	"vit",--Locke - White House
+	"friend",--The Butcher - Scarface Mansion
+	"crojob2",--The Butcher - The Bomb: Dockyard
+	--"crojob3",--The Butcher - The Bomb: Forest
+	"spa",--The Continental - Brooklyn 10-10
+	"fish",--The Continental - Yatch Heist
+	"kenaz",--The Dentist - Golden Grin Casino
+	"mia_1",--The Dentist - Hotline Miami 1
+	"mia_2",--The Dentist - Hotline Miami 2
+	"hox_1",--The Dentist - Hoxton Breakout 1
+	"hox_2",--The Dentist - Hoxton Breakout 2
+	"hox_3",--The Dentist - Hoxton Revenge
+	"big",--The Dentist - Big Bank
+	"mus",--The Dentist - The Diamond
+	"welcome_to_the_jungle_1",--The Elephant - Big Oil 1
+	"welcome_to_the_jungle_2",--The Elephant - Big Oil 2
+	"election_day_1",--The Elephant - Election Day 1
+	"election_day_2",--The Elephant - Election Day 2 Stealth
+	"election_day_3",--The Elephant - Election Day 3 Loud
+	"framing_frame_1",--The Elephant - Framing Frame 1
+	"framing_frame_2",--The Elephant - Framing Frame 2
+	"framing_frame_3",--The Elephant - Framing Frame 3
+	"born",--The Elephant - Biker Heist
+	"jolly",--Vlad - Aftershock
+	"fex",--Vlad - Buluc's Mansion
+	"four_stores",--Vlad - Four Stores
+	"peta",--Vlad - Goat Simulator 1
+	"peta2",--Vlad - Goat Simulator 2
+	"shoutout_raid",--Vlad - Meltdown
+	"nightclub",--Vlad - Nightclub
+	"bex",--Vlad - San Martín Bank
+	"cane",--Vlad - Santa's Workshop
+	"ukrainian_job"--Vlad - Ukrainian Job
 }
 for _, _heist in pairs(RNGModifier._heistlist) do
 	if tweak_data.levels[_heist] and tweak_data.levels[_heist].name_id then
@@ -88,7 +106,7 @@ end
 
 function RNGModifier:SafeGetData(_heist, _table1)
 	if not _heist or not self._data or not self._data[_heist] then
-		return
+		return nil
 	end
 	return self._data[_heist][_table1] or nil
 end
@@ -227,10 +245,12 @@ function RNGModifier:Load()
 		_data = json.decode(_file:read("*all" ))
 		_file:close()
 	end
-	if not _data or not _file or tostring(self._data["Version"]) ~= tostring(_data["Version"]) then
+	if not _data or not _file or tostring(self._data["Version"]) < tostring(_data["Version"]) then -- this will break if version number count will change digits amount, but good enough for now
 		self:Save()
 	else
+		local version = self._data["Version"]
 		self._data = _data
+		self._data["Version"] = version
 	end
 end
 
@@ -251,6 +271,22 @@ Hooks:Add("MenuManagerSetupCustomMenus", "MenuManagerSetupCustomMenus_RNGModifie
 	end
 end)
 
+function get_contractor_from_level_id(level_id)
+	for job_id, job_data in pairs(tweak_data.narrative.jobs) do
+		for _, stage in ipairs(tweak_data.narrative:job_chain(job_id)) do
+			if stage.level_id == nil then -- it should mean that it's a list of stages?
+				for _, stage in ipairs(stage) do
+					if stage.level_id == level_id and job_data.contact then
+						return job_data.contact
+					end
+				end
+			elseif stage.level_id == level_id and job_data.contact then
+				return job_data.contact
+			end
+		end
+	end
+end
+
 Hooks:Add("MenuManagerBuildCustomMenus", "MenuManagerBuildCustomMenus_RNGModifier", function(menu_manager, nodes)
 	nodes[RNGModifier._menu_id] = MenuHelper:BuildMenu(RNGModifier._menu_id)
 	nodes[RNGModifier._menu_Heist_id] = MenuHelper:BuildMenu(RNGModifier._menu_Heist_id)
@@ -258,11 +294,18 @@ Hooks:Add("MenuManagerBuildCustomMenus", "MenuManagerBuildCustomMenus_RNGModifie
 	MenuHelper:AddMenuItem(nodes["blt_options"], RNGModifier._menu_id, "RNGModifier_menu_title", "RNGModifier_menu_desc")
 	MenuHelper:AddMenuItem(nodes[RNGModifier._menu_id], RNGModifier._menu_Heist_id, "RNGModifier_menu_Heist_title", "RNGModifier_empty_desc")
 	MenuHelper:AddMenuItem(nodes[RNGModifier._menu_id], RNGModifier._menu_All_id, "RNGModifier_menu_All_title", "RNGModifier_empty_desc")
-	for _, _heist in pairs(RNGModifier._heistlist) do
+	for index, _heist in pairs(RNGModifier._heistlist) do
 		if tweak_data.levels[_heist] and tweak_data.levels[_heist].name_id then
 			local _new = "RNGModifier_".. _heist .."_Options_Menu"
 			nodes[_new] = MenuHelper:BuildMenu(_new)
-			MenuHelper:AddMenuItem(nodes[RNGModifier._menu_Heist_id], _new, tweak_data.levels[_heist].name_id, "RNGModifier_empty_desc")
+			local contact = get_contractor_from_level_id(_heist) or "dallas"
+			local contact_menu = "RNGModifier_contact_".. contact .."_Options_Menu"
+			if not nodes[contact_menu] then
+				MenuHelper:NewMenu(contact_menu)
+				nodes[contact_menu] = MenuHelper:BuildMenu(contact_menu)
+				MenuHelper:AddMenuItem(nodes[RNGModifier._menu_Heist_id], contact_menu, tweak_data.narrative.contacts[contact].name_id, "RNGModifier_empty_desc")
+			end
+			MenuHelper:AddMenuItem(nodes[contact_menu], _new, tweak_data.levels[_heist].name_id, "RNGModifier_empty_desc")
 		end
 	end
 end)
@@ -273,7 +316,6 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "MenuManagerPopulateCustomMenus_RNGM
 			dofile(RNGModifier._path .. "Hooks/heist/".. _heist ..".lua")
 		end
 	end
-	RNGModifier:SafeSetData(0, "all_of_all", "_forced_escape_day")
 	MenuCallbackHandler.RNGModifier_all_of_all_forced_escape_day = function(self, item)
 		if tostring(item:value()) == "on" then
 			RNGModifier:SafeSetData(1, "all_of_all", "_forced_escape_day")
@@ -282,7 +324,7 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "MenuManagerPopulateCustomMenus_RNGM
 		end
 		RNGModifier:Save()
 	end
-	local _bool = tonumber(RNGModifier:SafeGetData("all_of_all", "_forced_escape_day")) == 1 and true or false
+	local _bool = tonumber(tostring(RNGModifier:SafeGetData("all_of_all", "_forced_escape_day"))) == 1 and true or false
 	MenuHelper:AddToggle({
 		id = "RNGModifier_all_of_all_forced_escape_day",
 		title = "RNGModifier_all_of_all_forced_escape_day_title",

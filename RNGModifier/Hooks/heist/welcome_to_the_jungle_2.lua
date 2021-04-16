@@ -74,14 +74,11 @@ MenuHelper:AddMultipleChoice({
 		"RNGModifier_Default_One_Item",
 		"RNGModifier_number_4_use_1",
 		"RNGModifier_number_4_use_2",
-		"RNGModifier_number_4_use_3",
-		"RNGModifier_number_4_use_4",
 		"RNGModifier_number_4_use_5",
 		"RNGModifier_number_4_use_6",
 		"RNGModifier_number_4_use_7",
 		"RNGModifier_number_4_use_8",
 		"RNGModifier_number_4_use_9",
-		"RNGModifier_number_4_use_10",
 		"RNGModifier_number_4_use_11",
 		"RNGModifier_number_4_use_12"
 	},
@@ -89,19 +86,24 @@ MenuHelper:AddMultipleChoice({
 	menu_id = "RNGModifier_welcome_to_the_jungle_2_Options_Menu"
 })
 
-MenuCallbackHandler.RNGModifier_welcome_to_the_jungle_2_prein = function(self, item)
-	RNGModifier:SafeSetData(item:value(), _Curret_Heist, "_prein")
+MenuCallbackHandler.RNGModifier_welcome_to_the_jungle_2_pickup = function(self, item)
+	RNGModifier:SafeSetData(item:value(), _Curret_Heist, "_pickup")
 	RNGModifier:Save()
 end
 MenuHelper:AddMultipleChoice({
-	id = "RNGModifier_welcome_to_the_jungle_2_prein",
-	title = "RNGModifier_welcome_to_the_jungle_2_prein_title",
+	id = "RNGModifier_welcome_to_the_jungle_2_pickup",
+	title = "RNGModifier_welcome_to_the_jungle_2_pickup_title",
 	desc = "RNGModifier_empty_desc",
-	callback = "RNGModifier_welcome_to_the_jungle_2_prein",
+	callback = "RNGModifier_welcome_to_the_jungle_2_pickup",
 	items = {
 		"RNGModifier_Default_One_Item",
-		"RNGModifier_welcome_to_the_jungle_2_prein_1"
+		"RNGModifier_welcome_to_the_jungle_2_pickup_1",
+		"RNGModifier_welcome_to_the_jungle_2_pickup_2",
+		"RNGModifier_welcome_to_the_jungle_2_pickup_3",
+		"RNGModifier_welcome_to_the_jungle_2_pickup_4"
 	},
-	value = RNGModifier:SafeGetData(_Curret_Heist, "_prein"),
+	value = RNGModifier:SafeGetData(_Curret_Heist, "_pickup"),
 	menu_id = "RNGModifier_welcome_to_the_jungle_2_Options_Menu"
 })
+
+

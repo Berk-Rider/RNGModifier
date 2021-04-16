@@ -170,3 +170,40 @@ MenuHelper:AddMultipleChoice({
 	value = RNGModifier:SafeGetData(_Curret_Heist, "_chooseServerRoom"),
 	menu_id = "RNGModifier_framing_frame_3_Options_Menu"
 })
+
+MenuCallbackHandler.RNGModifier_framing_frame_3_escape = function(self, item)
+	RNGModifier:SafeSetData(item:value(), _Curret_Heist, "_escape")
+	RNGModifier:Save()
+end
+MenuHelper:AddMultipleChoice({
+	id = "RNGModifier_framing_frame_3_escape",
+	title = "RNGModifier_framing_frame_3_escape_title",
+	desc = "RNGModifier_empty_desc",
+	callback = "RNGModifier_framing_frame_3_escape",
+	items = {
+		"RNGModifier_Default_One_Item",
+		"RNGModifier_framing_frame_3_escape_1",
+		"RNGModifier_framing_frame_3_escape_2"
+	},
+	value = RNGModifier:SafeGetData(_Curret_Heist, "_escape"),
+	menu_id = "RNGModifier_framing_frame_3_Options_Menu"
+})
+
+MenuCallbackHandler.RNGModifier_framing_frame_3_block = function(self, item)
+	RNGModifier:SafeSetData(item:value(), _Curret_Heist, "_block")
+	RNGModifier:Save()
+end
+MenuHelper:AddMultipleChoice({
+	id = "RNGModifier_framing_frame_3_block",
+	title = "RNGModifier_framing_frame_3_block_title",
+	desc = "RNGModifier_empty_desc",
+	callback = "RNGModifier_framing_frame_3_block",
+	items = {
+		"RNGModifier_Default_One_Item",
+		"RNGModifier_framing_frame_3_spawnRandomVault_001",
+		"RNGModifier_framing_frame_3_spawnRandomVault_002",
+		"RNGModifier_framing_frame_3_spawnRandomVault_003"
+	},
+	value = RNGModifier:SafeGetData(_Curret_Heist, "_block"),
+	menu_id = "RNGModifier_framing_frame_3_Options_Menu"
+})
